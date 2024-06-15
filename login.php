@@ -5,7 +5,8 @@
     $username = $_POST['username'];
     $password = md5(sha1($_POST['paswd']));
 
-    $rs = $k->query("SELECT * FROM users WHERE username='".$username."' AND paswd = '".$password."' AND active=
+    $rs = $k->query("SELECT * FROM users WHERE username='".$username."' AND paswd = '".$password."' AND active=1");
+    
     if($rs->num_rows == 1)
     {
         $baris = $rs->fetch_assoc();
