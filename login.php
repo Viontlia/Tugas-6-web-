@@ -5,14 +5,7 @@
     $username = $_POST['username'];
     $password = md5(sha1($_POST['paswd']));
 
-    $rs = $k->query("SELECT * FROM users WHERE username='".$username."' AND paswd = '".$password."' AND active=1");
-
-    // Menggunakan prepared statements
-$stmt = $k->prepare("SELECT * FROM users WHERE username=? AND paswd=? AND active=1");
-$stmt->bind_param("ss", $username, $password);
-$stmt->execute();
-$result = $stmt->get_result();
-
+    $rs = $k->query("SELECT * FROM users WHERE username='".$username."' AND paswd = '".$password."' AND active=
     if($rs->num_rows == 1)
     {
         $baris = $rs->fetch_assoc();
